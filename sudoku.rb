@@ -65,7 +65,7 @@ class SudokuGame
   end
 
   def solved?
-    self.solved?
+    board.solved?
   end
 
   def valid_pos?(pos)
@@ -89,3 +89,4 @@ end
 
 
 game = SudokuGame.from_file("./puzzles/sudoku1.txt")
+game.run
