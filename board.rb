@@ -35,6 +35,10 @@ class Board
     tile.value = new_value
   end
 
+  def rows
+    @grid
+  end
+
   def columns
     rows.transpose!
   end
