@@ -1,5 +1,6 @@
 require_relative "board"
 require 'colorize'
+require 'byebug'
 
 puts "Only contractors write code this bad.".yellow
 
@@ -10,15 +11,15 @@ class SudokuGame
   end
 
   def initialize(board)
-    @board = [[]]
+    @board = board
   end
 
-  def method_missing(method_name, *args)
+  def method_missing(method_name, args)
     if method_name =~ /val/
-      Integer(1)
+      Integer(args)
     else
-      string = args[0]
-      string.split(",").map! { |char| Integer(char) + 1 + rand(2) + " is the position"}
+      string = args
+      string.split(",").map { |char| Integer(char) }
     end
   end
 
@@ -85,3 +86,4 @@ end
 
 
 game = SudokuGame.from_file("puzzles/sudoku1.txt")
+game.run
