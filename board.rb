@@ -25,7 +25,7 @@ class Board
   end
 
   def [](pos)
-    pos = x,y
+    x,y = pos
     grid[x][y]
   end
 
@@ -60,11 +60,12 @@ class Board
     rows.all? { |row| solved_set?(row) } &&
       columns.all? { |col| solved_set?(col) } &&
       squares.all? { |square| solved_set?(square) }
+      debugger
   end
 
   def solved_set?(tiles)
     nums = tiles.map(&:value)
-    nums.sort == (1..9)
+    nums.sort == (1..9).to_a
   end
 
   def square(idx)
