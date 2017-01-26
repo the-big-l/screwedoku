@@ -1,5 +1,5 @@
 require_relative "tile"
-
+require 'byebug'
 class Board
   attr_reader :grid
 
@@ -32,7 +32,7 @@ class Board
   def []=(pos, value)
     x, y = pos
     tile = grid[x][y]
-    tile.value = new_value
+    tile.value = value
   end
 
   def rows
@@ -82,7 +82,7 @@ class Board
   end
 
   def squares
-    (0..8).to_a.each { |i| square(i) }
+    (0..8).to_a.map { |i| square(i) }
   end
 
 end
