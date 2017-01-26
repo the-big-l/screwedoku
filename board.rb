@@ -25,7 +25,7 @@ class Board
   end
 
   def [](pos)
-    x,y = pos
+    x, y = pos
     grid[x][y]
   end
 
@@ -72,8 +72,8 @@ class Board
     x = (idx / 3) * 3
     y = (idx % 3) * 3
 
-    (x..x + 3).each do |j|
-      (y..y + 3).each do |i|
+    (x...x + 3).each do |j|
+      (y...y + 3).each do |i|
         pos = [i,j]
         tiles << self[pos]
       end
