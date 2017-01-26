@@ -1,5 +1,5 @@
 require_relative "tile"
-
+require 'byebug'
 class Board
   def self.empty_grid
     Array.new(9) do
